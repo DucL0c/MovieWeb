@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "AppTest": {
+    "admin_web": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/app-test",
+            "outputPath": "dist/admin_web",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -69,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "AppTest:build:production"
+              "buildTarget": "admin_web:build:production"
             },
             "development": {
-              "buildTarget": "AppTest:build:development"
+              "buildTarget": "admin_web:build:development"
             }
           },
           "defaultConfiguration": "development"
