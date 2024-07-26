@@ -3,7 +3,35 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35122.118
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieWeb.WebApi", "MovieWeb.WebApi\MovieWeb.WebApi.csproj", "{73E4593A-67B7-4FBD-95B1-8BC45B8D07B6}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "MovieWeb.ClientApp", "MovieWeb.ClientApp\MovieWeb.ClientApp.esproj", "{96545A44-1547-46BA-AFC9-EBDC5521824C}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "MovieWeb.AdminApp", "MovieWeb.AdminApp\MovieWeb.AdminApp.esproj", "{625C8EA9-BC71-4B63-A5B4-9ACC70B31792}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{73E4593A-67B7-4FBD-95B1-8BC45B8D07B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73E4593A-67B7-4FBD-95B1-8BC45B8D07B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73E4593A-67B7-4FBD-95B1-8BC45B8D07B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73E4593A-67B7-4FBD-95B1-8BC45B8D07B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96545A44-1547-46BA-AFC9-EBDC5521824C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96545A44-1547-46BA-AFC9-EBDC5521824C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96545A44-1547-46BA-AFC9-EBDC5521824C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{96545A44-1547-46BA-AFC9-EBDC5521824C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96545A44-1547-46BA-AFC9-EBDC5521824C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96545A44-1547-46BA-AFC9-EBDC5521824C}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{625C8EA9-BC71-4B63-A5B4-9ACC70B31792}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{625C8EA9-BC71-4B63-A5B4-9ACC70B31792}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{625C8EA9-BC71-4B63-A5B4-9ACC70B31792}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{625C8EA9-BC71-4B63-A5B4-9ACC70B31792}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{625C8EA9-BC71-4B63-A5B4-9ACC70B31792}.Release|Any CPU.Build.0 = Release|Any CPU
+		{625C8EA9-BC71-4B63-A5B4-9ACC70B31792}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
