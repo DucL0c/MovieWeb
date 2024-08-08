@@ -20,11 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MovieWeb.Models\MovieWeb.Models.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Repository\" />
+    <ProjectReference Include="..\MovieWeb.Model\MovieWeb.Model.csproj" />
   </ItemGroup>
 
 </Project>

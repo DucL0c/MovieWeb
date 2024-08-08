@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-using MovieWeb.Models.Models;
+using MovieWeb.Model.Models;
 
 namespace MovieWeb.Data;
 
@@ -63,7 +63,7 @@ public partial class MovieContext : DbContext
     {
         modelBuilder.Entity<Department>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Departme__3214EC072A4B44AA");
+            entity.HasKey(e => e.Id).HasName("PK__Departme__3214EC072752DC99");
 
             entity.ToTable("Department");
 
@@ -83,7 +83,7 @@ public partial class MovieContext : DbContext
 
         modelBuilder.Entity<Episode>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Episodes__3214EC07BFB633BF");
+            entity.HasKey(e => e.Id).HasName("PK__Episodes__3214EC0770DAEA65");
 
             entity.Property(e => e.CreatedBy)
                 .HasMaxLength(255)
@@ -103,7 +103,7 @@ public partial class MovieContext : DbContext
 
         modelBuilder.Entity<Filmmaker>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Filmmake__3214EC07194827D7");
+            entity.HasKey(e => e.Id).HasName("PK__Filmmake__3214EC07A52D9F79");
 
             entity.Property(e => e.Address)
                 .HasMaxLength(255)
@@ -127,7 +127,7 @@ public partial class MovieContext : DbContext
 
         modelBuilder.Entity<FilmmakersDepartment>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Filmmake__3214EC07DA33AFCF");
+            entity.HasKey(e => e.Id).HasName("PK__Filmmake__3214EC0748CC5395");
 
             entity.ToTable("Filmmakers_Department");
 
@@ -144,7 +144,7 @@ public partial class MovieContext : DbContext
 
         modelBuilder.Entity<FilmmakersSocial>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Filmmake__3214EC07A4DA2A15");
+            entity.HasKey(e => e.Id).HasName("PK__Filmmake__3214EC07D7C447AB");
 
             entity.ToTable("Filmmakers_Social");
 
@@ -161,7 +161,7 @@ public partial class MovieContext : DbContext
 
         modelBuilder.Entity<Genre>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Genre__3214EC0732CEE249");
+            entity.HasKey(e => e.Id).HasName("PK__Genre__3214EC0749D37E75");
 
             entity.ToTable("Genre");
 
@@ -181,7 +181,7 @@ public partial class MovieContext : DbContext
 
         modelBuilder.Entity<GenreMovie>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Genre_Mo__3214EC0723A91ADF");
+            entity.HasKey(e => e.Id).HasName("PK__Genre_Mo__3214EC0789299836");
 
             entity.ToTable("Genre_Movie");
 
@@ -198,7 +198,7 @@ public partial class MovieContext : DbContext
 
         modelBuilder.Entity<GroupRole>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Group_Ro__3214EC07568D69E0");
+            entity.HasKey(e => e.Id).HasName("PK__Group_Ro__3214EC0757E85B50");
 
             entity.ToTable("Group_Role");
 
@@ -215,7 +215,7 @@ public partial class MovieContext : DbContext
 
         modelBuilder.Entity<Movie>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Movie__3214EC075DC5BF41");
+            entity.HasKey(e => e.Id).HasName("PK__Movie__3214EC072890E648");
 
             entity.ToTable("Movie");
 
@@ -229,6 +229,9 @@ public partial class MovieContext : DbContext
                 .HasMaxLength(255)
                 .IsUnicode(false);
             entity.Property(e => e.Image)
+                .HasMaxLength(255)
+                .IsUnicode(false);
+            entity.Property(e => e.IsLock)
                 .HasMaxLength(255)
                 .IsUnicode(false);
             entity.Property(e => e.ModifierBy)
@@ -250,7 +253,7 @@ public partial class MovieContext : DbContext
 
         modelBuilder.Entity<MovieFilmmaker>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Movie_Fi__3214EC079E544B2F");
+            entity.HasKey(e => e.Id).HasName("PK__Movie_Fi__3214EC07DBB60AF7");
 
             entity.ToTable("Movie_Filmmakers");
 
@@ -272,7 +275,7 @@ public partial class MovieContext : DbContext
 
         modelBuilder.Entity<PointStar>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__PointSta__3214EC07E076B20C");
+            entity.HasKey(e => e.Id).HasName("PK__PointSta__3214EC070D32B020");
 
             entity.ToTable("PointStar");
 
@@ -289,7 +292,7 @@ public partial class MovieContext : DbContext
 
         modelBuilder.Entity<Review>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Review__3214EC077238CFAF");
+            entity.HasKey(e => e.Id).HasName("PK__Review__3214EC07D98DDBF1");
 
             entity.ToTable("Review");
 
@@ -314,7 +317,7 @@ public partial class MovieContext : DbContext
 
         modelBuilder.Entity<Social>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Social__3214EC072A5B8D2F");
+            entity.HasKey(e => e.Id).HasName("PK__Social__3214EC07F4AF0DB7");
 
             entity.ToTable("Social");
 
@@ -328,7 +331,7 @@ public partial class MovieContext : DbContext
 
         modelBuilder.Entity<Source>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Source__3214EC0781C8B2D3");
+            entity.HasKey(e => e.Id).HasName("PK__Source__3214EC0743BE4F0E");
 
             entity.ToTable("Source");
 
@@ -353,7 +356,7 @@ public partial class MovieContext : DbContext
 
         modelBuilder.Entity<SystemGroup>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__SystemGr__3214EC07955732F4");
+            entity.HasKey(e => e.Id).HasName("PK__SystemGr__3214EC07BDB26570");
 
             entity.ToTable("SystemGroup");
 
@@ -376,7 +379,7 @@ public partial class MovieContext : DbContext
 
         modelBuilder.Entity<SystemRole>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__SystemRo__3214EC073552EC22");
+            entity.HasKey(e => e.Id).HasName("PK__SystemRo__3214EC07F4F745AD");
 
             entity.ToTable("SystemRole");
 
@@ -389,6 +392,7 @@ public partial class MovieContext : DbContext
             entity.Property(e => e.NameRole)
                 .HasMaxLength(255)
                 .IsUnicode(false);
+            entity.Property(e => e.ParentId);
             entity.Property(e => e.RoleCode)
                 .HasMaxLength(255)
                 .IsUnicode(false);
@@ -396,7 +400,7 @@ public partial class MovieContext : DbContext
 
         modelBuilder.Entity<SystemUser>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__SystemUs__3214EC0732FBA770");
+            entity.HasKey(e => e.Id).HasName("PK__SystemUs__3214EC07FD0F485F");
 
             entity.ToTable("SystemUser");
 
@@ -412,6 +416,10 @@ public partial class MovieContext : DbContext
             entity.Property(e => e.Name)
                 .HasMaxLength(255)
                 .IsUnicode(false);
+            entity.Property(e => e.PasswordHash)
+            .HasColumnType("varbinary(max)");
+            entity.Property(e => e.PasswordSalt)
+                .HasColumnType("varbinary(max)");
             entity.Property(e => e.Phone)
                 .HasMaxLength(255)
                 .IsUnicode(false);
@@ -427,7 +435,7 @@ public partial class MovieContext : DbContext
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__User__3214EC079C3F24D2");
+            entity.HasKey(e => e.Id).HasName("PK__User__3214EC072FE5A0E8");
 
             entity.ToTable("User");
 
@@ -435,6 +443,9 @@ public partial class MovieContext : DbContext
                 .HasMaxLength(255)
                 .IsUnicode(false);
             entity.Property(e => e.Email)
+                .HasMaxLength(255)
+                .IsUnicode(false);
+            entity.Property(e => e.IsPay)
                 .HasMaxLength(255)
                 .IsUnicode(false);
             entity.Property(e => e.ModifierBy)
@@ -450,7 +461,7 @@ public partial class MovieContext : DbContext
 
         modelBuilder.Entity<UserEpisode>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__User_Epi__3214EC077E6BC3F7");
+            entity.HasKey(e => e.Id).HasName("PK__User_Epi__3214EC07EF0F93C4");
 
             entity.ToTable("User_Episodes");
 
@@ -467,7 +478,7 @@ public partial class MovieContext : DbContext
 
         modelBuilder.Entity<WatchList>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__WatchLis__3214EC07C1467FAE");
+            entity.HasKey(e => e.Id).HasName("PK__WatchLis__3214EC07E6BA7D4F");
 
             entity.ToTable("WatchList");
 
