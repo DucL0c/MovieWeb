@@ -1,0 +1,5 @@
+{
+  "url_api_manage": "http://localhost:5209/",
+  "url_api_device": "https://localhost:44322/",
+  "url_api_XfaceDevice": "http://localhost:5210/"
+}

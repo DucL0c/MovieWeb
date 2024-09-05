@@ -18,6 +18,7 @@ namespace MovieWeb.Service
         Task<SystemUser> GetByIdAsync(int id);
         Task<SystemUser> GetByUserNameAsync(string Username);
         Task<IEnumerable<SystemUser>> GetAllAsync();
+        Task<List<String>> GetRoles(int id);
     }
     public class SystemUserService : ISystemUserService
     {
@@ -55,6 +56,11 @@ namespace MovieWeb.Service
         public async Task<SystemUser> GetByUserNameAsync(string Username)
         {
             return await _systemUserRepository.GetByUsernameAsync(Username);
+        }
+
+        public async Task<List<string>> GetRoles(int id)
+        {
+            return await _systemUserRepository.GetRoles(id);
         }
 
         public async Task<SystemUser> UpdateASync(SystemUser entity)

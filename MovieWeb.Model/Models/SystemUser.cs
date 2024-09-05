@@ -20,6 +20,7 @@ public partial class SystemUser
     public string Address { get; set; } = null!;
 
     public string Phone { get; set; } = null!;
+    public string? Image { get; set; }
 
     public string? CreatedBy { get; set; }
 

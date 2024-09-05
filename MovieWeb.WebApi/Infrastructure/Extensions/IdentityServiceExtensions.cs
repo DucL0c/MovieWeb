@@ -11,15 +11,15 @@ namespace MovieWeb.WebApi.Infrastructure.Extensions
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
                 {
-#pragma warning disable CS8604 // Possible null reference argument.
                     options.TokenValidationParameters = new TokenValidationParameters
                     {
                         ValidateIssuerSigningKey = true,
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["TokenKey"])),
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["TokenKey"] ?? throw new ArgumentNullException("TokenKey"))),
                         ValidateIssuer = false,
-                        ValidateAudience = false
+                        ValidateAudience = false,
+                        ValidateLifetime = true,
+                        ClockSkew = TimeSpan.Zero
                     };
-#pragma warning restore CS8604 // Possible null reference argument.
                 });
 
             return services;

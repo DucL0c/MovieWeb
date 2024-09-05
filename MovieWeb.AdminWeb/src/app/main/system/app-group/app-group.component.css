@@ -1,0 +1,29 @@
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+.mat-elevation-z8.table-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 70vh; /* Đảm bảo chiều cao tối thiểu của container là 100% chiều cao của viewport */
+}
+
+.res-table-container {
+  flex: 1; /* Đảm bảo bảng chiếm toàn bộ không gian còn lại */
+}
+
+mat-paginator {
+  align-self: flex-end; /* Đảm bảo phân trang nằm ở cuối container */
+}
+
+.dialogform {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 100%;
+  max-width: 500px;
+}

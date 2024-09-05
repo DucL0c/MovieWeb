@@ -1,7 +1,13 @@
-﻿using Microsoft.OpenApi.Models;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
+using MovieWeb.Model.Models;
+using System.Text;
 
 namespace MovieWeb.WebApi.Infrastructure.Extensions
 {
+    //Swagger
+
     public static class ServiceCollectionExtensions
     {
         public static IServiceCollection AddSwagger(this IServiceCollection services)

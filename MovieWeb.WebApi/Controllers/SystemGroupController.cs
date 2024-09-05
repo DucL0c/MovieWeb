@@ -1,8 +1,11 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using MovieWeb.Model.MappingModels;
 using MovieWeb.Model.Models;
 using MovieWeb.Model.ViewModels;
 using MovieWeb.Service;
+using MovieWeb.WebApi.Infrastructure.Core;
 using System;
 using System.Threading.Tasks;
 
@@ -10,6 +13,7 @@ namespace MovieWeb.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class SystemGroupController : ControllerBase
     {
         private readonly ISystemGroupService _systemGroupService;
@@ -73,12 +77,16 @@ namespace MovieWeb.WebApi.Controllers
                 return NotFound("Group not found.");
             }
 
-            var model = _mapper.Map<SystemGroupViewModel, SystemGroup>(group);
-            model.ModifiedDate = DateTime.Now;
-            model.ModifierBy = "Admin";
-
             try
             {
+                var model = _mapper.Map<SystemGroup>(group);
+                model.ModifiedDate = DateTime.Now;
+                model.ModifierBy = "Admin";
+                if (model == null)
+                {
+                    return BadRequest("Model is null");
+                }
+
                 var result = await _systemGroupService.UpdateGroup(model);
                 return Ok(result);
             }
@@ -114,6 +122,7 @@ namespace MovieWeb.WebApi.Controllers
         }
 
         [HttpGet("GetAll")]
+        [Authorize(Roles = "ViewGroup")]
         public async Task<IActionResult> GetAllGroups()
         {
             try
@@ -124,6 +133,33 @@ namespace MovieWeb.WebApi.Controllers
             catch (Exception ex)
             {
                 return StatusCode(500, $"An error occurred while retrieving all groups: {ex.Message}");
+            }
+        }
+
+        [HttpGet("Getallbypaging")]
+        public async Task<IActionResult> GetAllByPaging(int page = 0, int pageSize = 100, string? keyword = null)
+        {
+            try
+            {
+                var model = await _systemGroupService.GetAllGroup();
+                int totalRow = 0;
+                var data = model.OrderByDescending(x => x.Id).Skip(page * pageSize).Take(pageSize);
+                var mapping = _mapper.Map<IEnumerable<SystemGroup>, IEnumerable<SystemGroupDto>>(data);
+
+                totalRow = model.Count();
+
+                var paging = new PaginationSet<SystemGroupDto>()
+                {
+                    Items = mapping,
+                    Page = page,
+                    TotalCount = totalRow,
+                    TotalPages = (int)Math.Ceiling((decimal)totalRow / pageSize)
+                };
+                return Ok(paging);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
             }
         }
 

@@ -14,7 +14,8 @@ namespace MovieWeb.Model.ViewModels
         public string NameRole { get; set; } = null!;
         [Required]
         public string RoleCode { get; set; } = null!;
-        public int ParentId { get; set; }
+        public int? ParentId { get; set; } = null!;
+        public string Icon { get; set; } = null!;
 
     }
 }

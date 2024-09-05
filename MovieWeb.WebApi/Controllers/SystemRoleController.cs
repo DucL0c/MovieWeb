@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MovieWeb.Model.Models;
@@ -11,6 +12,7 @@ namespace MovieWeb.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class SystemRoleController : ControllerBase
     {
         private readonly ISystemRoleService _systemRoleService;
@@ -150,6 +152,21 @@ namespace MovieWeb.WebApi.Controllers
             catch (Exception)
             {
                 return StatusCode(500, "An unexpected error occurred while checking role existence.");
+            }
+        }
+
+        [HttpGet("gettreeviewbyuser")]
+        public async Task<IActionResult> GetTreeView(int userId)
+        {
+            try
+            {
+                //_logger.LogInformation("Run endpoint {endpoint} {verb}", "/api/aioaccesscontrol/appmenus/gettreeviewbyuser?userid={userId}", "GET");
+                var query = await _systemRoleService.GetTreeMenuByUserId(userId);
+                return Ok(query);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
             }
         }
     }

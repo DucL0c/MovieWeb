@@ -1,4 +1,5 @@
 ﻿using MovieWeb.Data.Repository;
+using MovieWeb.Model.MappingModels;
 using MovieWeb.Model.Models;
 
 namespace MovieWeb.Service
@@ -12,6 +13,7 @@ namespace MovieWeb.Service
         Task<IEnumerable<SystemRole>> GetAll();
         Task<Boolean> CheckContain(int id);
         Task<Boolean> CheckRole(string roleCode);
+        Task<IQueryable<MenuDto>> GetTreeMenuByUserId(int userId);
 
     }
     public class SystemRoleService : ISystemRoleService
@@ -53,6 +55,10 @@ namespace MovieWeb.Service
         public async Task<SystemRole> Update(SystemRole systemRole)
         {
             return await _systemRoleRepository.UpdateASync(systemRole);
+        }
+        public async Task<IQueryable<MenuDto>> GetTreeMenuByUserId(int userId)
+        {
+            return await _systemRoleRepository.GetTreeMenuByUserId(userId);
         }
     }
 }

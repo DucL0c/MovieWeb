@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using MovieWeb.Model.MappingModels;
 using MovieWeb.Model.Models;
 using MovieWeb.Model.ViewModels;
 
@@ -12,6 +13,7 @@ namespace MovieWeb.WebApi.Infrastructure.Extensions
             CreateMap<SystemGroupViewModel, SystemGroup>();
             CreateMap<SystemGroupRoleViewModel, GroupRole>();
             CreateMap<SystemUserViewModel, SystemUser>();
+            CreateMap<SystemGroup, SystemGroupDto>();
         }
     }
 }

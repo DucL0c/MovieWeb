@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MovieWeb.Model.Models;
 using MovieWeb.Model.ViewModels;
@@ -10,6 +11,7 @@ namespace MovieWeb.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class SystemGroupRoleController : ControllerBase
     {
         private readonly ISystemGroupRoleService _systemGroupRoleService;

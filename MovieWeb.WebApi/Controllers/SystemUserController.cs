@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MovieWeb.Model.MappingModels;
@@ -12,6 +13,7 @@ namespace MovieWeb.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class SystemUserController : ControllerBase
     {
         private readonly ISystemUserService _systemUserService;

@@ -25,6 +25,7 @@ namespace MovieWeb.Model.ViewModels
         public string Address { get; set; } = null!;
         [Required]
         public string Phone { get; set; } = null!;
+        public string? Image { get; set; } = null!;
         [Required]
         public int SystemGroupid { get; set; }
     }

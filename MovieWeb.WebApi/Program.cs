@@ -1,11 +1,15 @@
 using Autofac;
+using Autofac.Core;
 using Autofac.Extensions.DependencyInjection;
 using AutoMapper;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using MovieWeb.Data;
 using MovieWeb.Data.Repository;
 using MovieWeb.Service;
 using MovieWeb.WebApi.Infrastructure.Extensions;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,7 +34,7 @@ builder.Host.ConfigureContainer<ContainerBuilder>(builder =>
 });
 builder.Services.AddControllersWithViews();
 
-//JWT
+//JWT_AUTHENTICATION
 builder.Services.AddIdentityServices(builder.Configuration);
 
 builder.Services.AddControllers();
@@ -54,9 +58,15 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200"));
+/*app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200"));*/
 
-app.UseAuthentication();    
+app.UseCors(options => options
+                .WithOrigins("http://localhost:4200")
+                .AllowAnyMethod()
+                .AllowAnyHeader())
+                .UseAuthentication();
+
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

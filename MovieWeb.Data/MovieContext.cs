@@ -396,6 +396,19 @@ public partial class MovieContext : DbContext
             entity.Property(e => e.RoleCode)
                 .HasMaxLength(255)
                 .IsUnicode(false);
+            entity.Property(e => e.Description)
+                .HasMaxLength(255)
+                .IsUnicode(false);
+            entity.Property(e => e.Icon)
+                .HasMaxLength(255)
+                .IsUnicode(false);
+            entity.Property(e => e.Link)
+                .HasMaxLength(255)
+                .IsUnicode(false);
+            entity.Property(e => e.ActiveLink)
+                .HasMaxLength(255)
+                .IsUnicode(false);
+
         });
 
         modelBuilder.Entity<SystemUser>(entity =>
@@ -405,6 +418,9 @@ public partial class MovieContext : DbContext
             entity.ToTable("SystemUser");
 
             entity.Property(e => e.Address)
+                .HasMaxLength(255)
+                .IsUnicode(false);
+            entity.Property(e => e.Image)
                 .HasMaxLength(255)
                 .IsUnicode(false);
             entity.Property(e => e.CreatedBy)
